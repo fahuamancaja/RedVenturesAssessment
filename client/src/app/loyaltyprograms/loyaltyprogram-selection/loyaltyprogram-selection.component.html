@@ -1,0 +1,5 @@
+<div class="row">
+    <div *ngFor="let loyaltyprogram of loyaltyPrograms$ | async" class="col-2">
+        <app-loyaltyprogram-card [loyaltyprogram]="loyaltyprogram"></app-loyaltyprogram-card>
+    </div>
+</div>

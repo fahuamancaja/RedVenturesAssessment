@@ -2,7 +2,7 @@ using System;
 
 namespace API.Entities
 {
-    public class AppPoint
+    public class LoyaltyProgram
     {
         public int id { get; set; }
         public string point_id { get; set; }

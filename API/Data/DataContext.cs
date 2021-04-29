@@ -8,6 +8,6 @@ namespace API.Data
         public DataContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<AppPoint> Points { get; set; }
+        public DbSet<LoyaltyProgram> LoyaltyPrograms { get; set; }
     }
 }

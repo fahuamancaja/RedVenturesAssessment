@@ -15,7 +15,7 @@ namespace API.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.5");
 
-            modelBuilder.Entity("API.Entities.AppPoint", b =>
+            modelBuilder.Entity("API.Entities.LoyaltyProgram", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace API.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Points");
+                    b.ToTable("LoyaltyPrograms");
                 });
 #pragma warning restore 612, 618
         }

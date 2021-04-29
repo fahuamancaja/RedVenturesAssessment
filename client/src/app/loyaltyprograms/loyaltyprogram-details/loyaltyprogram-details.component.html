@@ -1,0 +1,59 @@
+<div class="container" *ngIf="loyaltyProgram == null">
+    <h1>Not Found</h1>
+    <button class="btn btn-info btn-lg" routerLink='/'>Return to Home Page</button>
+</div>
+
+<div class="row" *ngIf="loyaltyProgram">
+    <div class="col-4">
+        <div class="card">
+            <img src="{{'./assets/program.png'}}" alt="{{loyaltyProgram.name}}" 
+                class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{loyaltyProgram.point_id}}, {{loyaltyProgram.tpg_valuation}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{loyaltyProgram.name}}</p>
+                </div>
+                <div>
+                    <strong>Website:</strong>
+                    <p>{{loyaltyProgram.website_url}}</p>
+                </div>
+                <div>
+                    <strong>Member Since:</strong>
+                    <p>{{loyaltyProgram.loyalty_unit}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <bt class="btn btn-primary">Like</bt>
+                    <bt class="btn btn-success">Message</bt>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading='About {{loyaltyProgram.create_by}}'>
+                <h4>Description</h4>
+                <p>{{loyaltyProgram.create_date}}</p>
+                <h4>Looking For</h4>
+                <p>{{loyaltyProgram.update_by}}</p>
+            </tab>
+            <tab heading='Interests'>
+                <h4>Interests</h4>
+                <p>{{loyaltyProgram.update_day}}</p>
+            </tab>
+            <tab heading='Photos'>
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" 
+                    class="ngx-gallery" 
+                    style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
+            </tab>
+            <tab heading='Messages'>
+                <p>Messages will go here</p>
+            </tab>
+        </tabset>
+    </div>
+</div>

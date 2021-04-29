@@ -8,15 +8,15 @@ namespace API.Data
 {
     public class Seed
     {
-        public static async Task SeedPoints(DataContext context)
+        public static async Task LoyaltyPrograms(DataContext context)
         {
-            if(await context.Points.AnyAsync()) return;
+            if(await context.LoyaltyPrograms.AnyAsync()) return;
 
-            var pointsData = await System.IO.File.ReadAllTextAsync("Data/PointsSeedData.json");
-            var points = JsonSerializer.Deserialize<List<AppPoint>>(pointsData);
-            foreach (var point in points)
+            var loyaltyProgramsData = await System.IO.File.ReadAllTextAsync("Data/LoyaltyProgramsSeedData.json");
+            var loyaltyPrograms = JsonSerializer.Deserialize<List<LoyaltyProgram>>(loyaltyProgramsData);
+            foreach (var program in loyaltyPrograms)
             {
-                context.Points.Add(point);
+                context.LoyaltyPrograms.Add(program);
             }
             await context.SaveChangesAsync();
         }

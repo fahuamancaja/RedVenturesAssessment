@@ -7,7 +7,7 @@ namespace API.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Points",
+                name: "LoyaltyPrograms",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -27,14 +27,14 @@ namespace API.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Points", x => x.id);
+                    table.PrimaryKey("PK_LoyaltyPrograms", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Points");
+                name: "LoyaltyPrograms");
         }
     }
 }
