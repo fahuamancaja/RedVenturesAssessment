@@ -3,13 +3,13 @@
         <img src="{{'./assets/plane.jpg'}}" alt="{{loyaltyprogram.name}}" class="card-img-top">
         <ul class="list-inline loyaltyprogram-icons animate text-center">
             <li class="list-inline-item"><button routerLink="/points/{{loyaltyprogram.point_id}}" class="btn btn-primary"><i class="fa fa-plane"></i></button></li>
-            <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-link"></i></button></li>
+            <li class="list-inline-item"><a href="http://{{loyaltyprogram.website_url}}" class="btn btn-primary"><i class="fa fa-link"></i></a></li>
         </ul>
     </div>
     <div class="card-body p-1">
         <h6 class="card-title text-center mb-1"><i class="fa fa-plane mr-2"></i>
             {{loyaltyprogram.name}}
         </h6>
-        <p class="card-text text-muted text-center">{{loyaltyprogram.type}}</p>
+        <p class="card-text text-muted text-center">{{loyaltyprogram.type | titlecase}}</p>
     </div>
 </div>
