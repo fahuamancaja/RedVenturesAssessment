@@ -6,54 +6,87 @@
 <div class="row" *ngIf="loyaltyProgram">
     <div class="col-4">
         <div class="card">
-            <img src="{{'./assets/program.png'}}" alt="{{loyaltyProgram.name}}" 
+            <img src="{{'./assets/plane.jpg'}}" alt="{{loyaltyProgram.name}}" 
                 class="card-img-top img-thumbnail">
             <div class="card-body">
                 <div>
-                    <strong>Location:</strong>
-                    <p>{{loyaltyProgram.point_id}}, {{loyaltyProgram.tpg_valuation}}</p>
+                    <strong>Loyalty Program ID:</strong>
+                    <p>{{loyaltyProgram.point_id}}</p>
                 </div>
                 <div>
-                    <strong>Age:</strong>
+                    <strong>Tpg Valuation:</strong>
+                    <p>{{loyaltyProgram.tpg_valuation}}</p>
+                </div>
+                <div>
+                    <strong>Name:</strong>
                     <p>{{loyaltyProgram.name}}</p>
                 </div>
                 <div>
-                    <strong>Website:</strong>
+                    <strong>Icon Url:</strong>
+                    <p>{{loyaltyProgram.icon_url}}</p>
+                </div>
+                <div>
+                    <strong>Website Url:</strong>
                     <p>{{loyaltyProgram.website_url}}</p>
                 </div>
                 <div>
-                    <strong>Member Since:</strong>
-                    <p>{{loyaltyProgram.loyalty_unit}}</p>
+                    <strong>Loyalty Unit:</strong>
+                    <p>{{loyaltyProgram.loyaty_unit}}</p>
                 </div>
-            </div>
-            <div class="card-footer">
-                <div class="btn-group d-flex">
-                    <bt class="btn btn-primary">Like</bt>
-                    <bt class="btn btn-success">Message</bt>
+                <div>
+                    <strong>Type:</strong>
+                    <p>{{loyaltyProgram.type}}</p>
+                </div>
+                <div>
+                    <strong>Active:</strong>
+                    <p>{{loyaltyProgram.active}}</p>
+                </div>
+                <div>
+                    <strong>Create By:</strong>
+                    <p>{{loyaltyProgram.create_by}}</p>
+                </div>
+                <div>
+                    <strong>Create Date:</strong>
+                    <p>{{loyaltyProgram.create_date}}</p>
+                </div>
+                <div>
+                    <strong>Update By:</strong>
+                    <p>{{loyaltyProgram.update_by}}</p>
+                </div>
+                <div>
+                    <strong>Update Date:</strong>
+                    <p>{{loyaltyProgram.update_date}}</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-8">
-        <tabset class="member-tabset">
-            <tab heading='About {{loyaltyProgram.create_by}}'>
-                <h4>Description</h4>
-                <p>{{loyaltyProgram.create_date}}</p>
-                <h4>Looking For</h4>
-                <p>{{loyaltyProgram.update_by}}</p>
-            </tab>
-            <tab heading='Interests'>
-                <h4>Interests</h4>
-                <p>{{loyaltyProgram.update_day}}</p>
-            </tab>
-            <tab heading='Photos'>
-                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" 
-                    class="ngx-gallery" 
-                    style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
-            </tab>
-            <tab heading='Messages'>
-                <p>Messages will go here</p>
-            </tab>
-        </tabset>
+    <div class="col-8 mt-3">
+        <label for="calculator"><strong>Calculation for cash vs. points</strong></label>
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updatePoints()">
+            <div class="form-inline">
+                <label for="ticketcost">Cash Ticket Cost: </label>
+                <input [(ngModel)]="pointModel.ticket_cost" type="number" name="ticketcost" class="form-control mx-3">
+                <label for="numberpoints">Number of Points: </label>
+                <input [(ngModel)]="pointModel.number_of_points" type="number" name="numberpoints" class="form-control mx-3">
+            </div>
+        </form>
+        <div class="row mt-4 mx-auto">
+        </div>
+        <label for="fee">Domestic Fee is {{fee}} per ticket</label>
+        <div class="row mt-4 mx-auto">
+        <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-lg mt-3 mx-auto">Calculate</button>
+        </div>
+        <div class="row mt-5 mx-auto"><strong>Points price:</strong></div>
+        <div class="row mr-5 mx-auto" *ngIf="points_price">
+            <p>$ {{points_price}}</p>
+        </div>
+        <div class="row mr-5 mx-auto" *ngIf="choosepayment">
+            <div class="row mr-5 mx-auto" *ngIf="choosecash">
+                <p>Value is better with cash option</p>
+            </div>
+            <div class="row mr-5 mx-auto" *ngIf="!choosecash">
+                <p>Value is better with point option</p>
+            </div>
+        </div>
     </div>
 </div>

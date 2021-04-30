@@ -12,6 +12,7 @@ import { NavComponent } from './nav/nav.component';
 import { LoyaltyprogramCardComponent } from './loyaltyprograms/loyaltyprogram-card/loyaltyprogram-card.component';
 import { LoyaltyprogramDetailsComponent } from './loyaltyprograms/loyaltyprogram-details/loyaltyprogram-details.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component'
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component'
     BsDropdownModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
